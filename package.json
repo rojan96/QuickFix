@@ -1,0 +1,12 @@
+{
+  "name": "quickfix",
+  "version": "1.0.0",
+  "description": "QuickFix web shopping application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  
+  "author": "",
+  "license": "ISC"
+}
