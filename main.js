@@ -1,13 +1,16 @@
 const fs = require('fs');
-const http = require('http')
+const http = require('http');
+const express = require('express');
+const path = require('path')
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
 
+const app =express();
 
 
-http.createServer((req,res) => {
+app.get('/', (req,res) => {
     
-    index = fs.readFile('index.html', (err,html) => {
+    fs.readFile('index.html', (err,html) => {
         if(err){
             throw err;
         }
@@ -17,7 +20,9 @@ http.createServer((req,res) => {
         res.end();
     })
 
-}).listen(port, hostname, ()=>{
-    console.log('Server started on port' + port)
+})
+
+app.listen(port, hostname, ()=>{
+    console.log('Server started on port ' + port)
 })
 
