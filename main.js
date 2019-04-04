@@ -1,11 +1,11 @@
 const fs = require('fs');
-const http = require('http');
 const express = require('express');
-const path = require('path')
+const path = require('path');
+const bodyParser = require('body-parser');
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
 
-const app =express();
+const app = express();
 
 
 app.get('/', (req,res) => {
@@ -16,7 +16,7 @@ app.get('/', (req,res) => {
         }
         res.statusCode = 200;
         res.setHeader('Content-type', 'text/html');
-        res.write(html);
+        res.send(html);
         res.end();
     })
 
