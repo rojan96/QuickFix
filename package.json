@@ -2,7 +2,7 @@
   "name": "quickfix",
   "version": "1.0.0",
   "description": "QuickFix web shopping application",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
     "express": "^4.16.4"
   }
 }
