@@ -29,6 +29,10 @@ app.get('/', (req,res) => {
 
 })
 
+app.post('/login', (req,res)=>{
+    console.log('Logged in');
+})
+
 app.listen(port, hostname, ()=>{
     console.log('Server started on port ' + port)
 })
