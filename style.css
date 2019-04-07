@@ -1,0 +1,56 @@
+body {
+    /*background-image: url('/food1.jpg');*/
+    font-family: Caveat;
+}
+
+#first {
+    background-image: url("food1.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 10%;
+}
+
+#second {
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#third{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-image: url("images/mainbackground.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+#fourth{
+
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-family: Caveat;
+
+}
+
+#fifth{
+
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-image: url("images/fifth.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.jumbotron{
+    background-color: white;
+    color: #78B63F;
+    opacity:0.9 !important;
+    backdrop-filter: blur(10px) !important;
+
+
+}
+
+a{
+    color: white;
+}
