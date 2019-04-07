@@ -4,7 +4,7 @@ body {
 }
 
 #first {
-    background-image: url("food1.jpg");
+    background-image: url("../images/food1.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     padding-bottom: 10%;
@@ -19,7 +19,7 @@ body {
 #third{
     padding-top: 5%;
     padding-bottom: 5%;
-    background-image: url("images/mainbackground.jpg");
+    background-image: url("../images/mainbackground.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
 
@@ -37,7 +37,7 @@ body {
 
     padding-top: 5%;
     padding-bottom: 5%;
-    background-image: url("images/fifth.jpg");
+    background-image: url("../images/fifth.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
 }

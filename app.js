@@ -20,11 +20,11 @@ app.get('/', (req,res) => {
     
     res.render('index',{
         nav: [
-            { link: '#about', title: 'ABOUT' },
-            { link: '#order', title: 'ORDER' },
-            { link: '#contact', title: 'CONTACT' }
+            { link: '/', title: 'Home', current: 'class="sr-only">(current)' },
+            { link: '/about', title: 'About' },
+            { link: '/contact', title: 'Contact' }
         ],
-        title: "QuickFix"
+        title: "Welcome to QuickFix Troy!"
     });
 
 })
