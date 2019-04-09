@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const db = require('../config/database');
 
 //getting the user model
 const User = require ('../models/user');
@@ -41,6 +42,8 @@ router.post('/register', (req, res)=> {
         password:password
     });
     
+
+    //hashing the password and storing it
     bcrypt.genSalt(10, function(err, salt){
         bcrypt.hash(newUser.password, salt, function(err, hash){
             if(err){
