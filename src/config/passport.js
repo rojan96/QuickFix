@@ -1,7 +1,14 @@
 const passport = require('passport');
-require('./strategies/local_strategy')();
+require('./strategies/local_strategy')(passport);
 
-passport.serializeUser(function(user, done) {
+module.exports = (app) =>{
+  
+  // Passport Middleware
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+
+  passport.serializeUser(function(user, done) {
     done(null, user.id);
   });
 
@@ -10,3 +17,4 @@ passport.serializeUser(function(user, done) {
       done(err, user);
     });
   });
+};

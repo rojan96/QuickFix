@@ -8,13 +8,13 @@ const db = require('../config/database');
 const User = require ('../models/user');
 
 //displaying the register form
-router.get('/register', (req,res)=>{
+router.get('/form', (req,res)=>{
     res.render('register');
 })
 
 
 //registring a user
-router.post('/register', (req, res)=> {
+router.post('/add', (req, res)=> {
     const name = req.body.name;
     const email = req.body.email;
     const username = req.body.username;
@@ -56,7 +56,7 @@ router.post('/register', (req, res)=> {
                 return;
             } else {
                 req.flash('success','You are now registered and can log in');
-                res.redirect('/users/login');
+                res.redirect('/');
             }
             });
         });
@@ -64,3 +64,4 @@ router.post('/register', (req, res)=> {
     }
 });
 
+module.exports = router;

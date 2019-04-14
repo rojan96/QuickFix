@@ -1,9 +1,12 @@
 const Sequelize = require('sequelize');
 
 //connecting to database
-const sequelize = new Sequelize(/*'database', 'username', 'password',*/ {
+const sequelize = new Sequelize('QuickFix', 'root', '*******', {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  define: {
+    timestamps: false
+  }
 });
 
 //checking the connection

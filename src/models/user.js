@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../config/database')
+const db = require('../config/database')
 
 //creating a User model to reigter in database
-const User = sequelize.define('User', {
+const User = db.define('user', {
     // attributes
     name: {
       type: Sequelize.STRING,

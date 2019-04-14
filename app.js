@@ -53,6 +53,15 @@ errorFormatter: function(param, msg, value) {
 }
 }));
 
+// Passport Config
+require('./src/config/passport')(app);
+
+
+
+const RegisterRoute = require('./src/routes/register');
+
+app.use('/register', RegisterRoute);
+
 
 //index.ejs rendering
 app.get('/', (req,res) => {
