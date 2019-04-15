@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 //connecting to database
-const sequelize = new Sequelize('QuickFix', 'root', '308023Va!', {
+const sequelize = new Sequelize('QuickFix', 'root', '*******', {
   host: 'localhost',
   dialect: 'mysql',
   define: {
