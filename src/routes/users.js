@@ -8,13 +8,13 @@ const db = require('../config/database');
 const User = require ('../models/user');
 
 //displaying the register form
-router.get('/form', (req,res)=>{
+router.get('/register', (req,res)=>{
     res.render('register');
 })
 
 
 //registring a user
-router.post('/add', (req, res)=> {
+router.post('/register', (req, res)=> {
     const name = req.body.name;
     const email = req.body.email;
     const username = req.body.username;
@@ -31,6 +31,7 @@ router.post('/add', (req, res)=> {
     let errors = req.validationErrors();
 
     if(errors){
+        console.log(errors);
         res.render('register', {
           errors:errors
         });
@@ -47,21 +48,45 @@ router.post('/add', (req, res)=> {
     bcrypt.genSalt(10, function(err, salt){
         bcrypt.hash(newUser.password, salt, function(err, hash){
             if(err){
-            console.log(err);
+                console.log(err);
+                return
             }
             newUser.password = hash;
-            newUser.save(function(err){
-            if(err){
+            newUser.save()
+            .then(user=>{
+                req.flash('success','You are now registered and can log in');
+                res.redirect('/users/login');
+            })
+            .catch(err=>{
                 console.log(err);
                 return;
-            } else {
-                req.flash('success','You are now registered and can log in');
-                res.redirect('/');
-            }
             });
         });
         });
     }
 });
+
+//login form
+router.get('/login', function(req, res){
+    res.render('login');
+});
+
+//login process
+router.post('/login', function(req, res, next){
+    passport.authenticate('local', {
+      successRedirect:'/',
+      failureRedirect:'/users/login',
+      failureFlash: true
+    })(req, res, next);
+});
+
+
+router.get('/logout', function(req, res){
+  req.logout();
+  req.flash('success', 'You are logged out');
+  res.redirect('/users/login');
+});
+
+
 
 module.exports = router;

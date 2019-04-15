@@ -5,7 +5,7 @@ const session = require('express-session');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const passport = require('passport');
-const config = require('./src/config/database');
+const db = require('./src/config/database');
 
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
@@ -54,13 +54,15 @@ errorFormatter: function(param, msg, value) {
 }));
 
 // Passport Config
-require('./src/config/passport')(app);
+require('./src/config/passport')(passport);
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 
+const UsersRoute = require('./src/routes/users');
 
-const RegisterRoute = require('./src/routes/register');
-
-app.use('/register', RegisterRoute);
+app.use('/users', UsersRoute);
 
 
 //index.ejs rendering
@@ -69,6 +71,8 @@ app.get('/', (req,res) => {
     res.render('index',{
         nav: [
             { link: '/', title: 'Home', current: 'class="sr-only">(current)' },
+            { link: '/users/register', title: 'Register' },
+            { link: '/users/login', title: 'Log In' },
             { link: '/about', title: 'About' },
             { link: '/contact', title: 'Contact' }
         ],
@@ -77,10 +81,7 @@ app.get('/', (req,res) => {
 
 })
 
-app.get('/login', (req,res)=>{
-    res.send("Hello");
-    console.log('Logged in');
-})
+
 
 app.listen(port, hostname, ()=>{
     console.log('Server started on port ' + port)
