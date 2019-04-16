@@ -3,10 +3,10 @@ const bcrypt = require('bcryptjs');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
 
-
+//checking the password to login
 module.exports = (passport)=>{
   passport.use(new LocalStrategy((username,password,done)=>{
-    User.findOne({username:username})
+    User.findOne({where: {username:username}})
     .then(user=>{
         if(!user) return done(null, false, {message: 'No user found'});
 

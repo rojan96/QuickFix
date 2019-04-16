@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
-//template engine
+//template engine for html rendering
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './src/views'))
 
@@ -53,7 +53,7 @@ errorFormatter: function(param, msg, value) {
 }
 }));
 
-// Passport Config
+// Passport Config for log in
 require('./src/config/passport')(passport);
 // Passport Middleware
 app.use(passport.initialize());
@@ -73,6 +73,7 @@ app.get('/', (req,res) => {
             { link: '/', title: 'Home', current: 'class="sr-only">(current)' },
             { link: '/users/register', title: 'Register' },
             { link: '/users/login', title: 'Log In' },
+            { link: '/users/logout', title: 'Log Out' },
             { link: '/about', title: 'About' },
             { link: '/contact', title: 'Contact' }
         ],
