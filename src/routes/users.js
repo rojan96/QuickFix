@@ -38,7 +38,7 @@ router.post('/register', (req, res)=> {
           errors:errors
         });
     } else{ 
-
+        //checking for an existing account
         User.findOne({where:{
             [or]:[
                 {email:email},
